@@ -1,0 +1,12 @@
+<h1>This is preview page</h1>
+<a href="<?php echo $block->getUrl('userproducts/*/index')?>" class="action primary">Go back</a>
+<br>
+
+<h1><b><?php echo $block->getProduct('name')?></b></h1>
+<img src="<?php echo $block->getImagePath().'/'.$block->getProduct('image')?>" width="250px" height="250px">
+<div>
+<?php echo $block->getProduct('description')?>
+</div>
+<div>
+<b><span>cena: </span><?php echo $block->getProduct('price')?></b><span><b> $</b></span>
+</div>

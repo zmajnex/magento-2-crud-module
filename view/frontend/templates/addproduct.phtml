@@ -1,0 +1,47 @@
+<h1><?php echo $this->showUserForm(); ?></h1>
+<form class="form contact"
+      action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+      id="contact-form"
+      method="post"
+     enctype="multipart/form-data"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Name')) ?>"  class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field name required">
+            <label class="label" for="price"><span><?= $block->escapeHtml(__('Price')) ?></span></label>
+            <div class="control">
+                <input name="price" id="price" title="<?= $block->escapeHtmlAttr(__('Price')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field name ">
+            <label class="label" for="image"><span><?= $block->escapeHtml(__('Image')) ?></span></label>
+            <div class="control">
+                <input name="image" type="file" id="image" title="<?= $block->escapeHtmlAttr(__('Image')) ?>" class="input-text" type="text" data-validate="{required:false}"/>
+            </div>
+        </div>   
+        <div class="field comment required">
+            <label class="label" for="content"><span><?= $block->escapeHtml(__('Content')) ?></span></label>
+            <div class="control">
+                <textarea name="content" id="content" title="<?= $block->escapeHtmlAttr(__('Content')) ?>" class="input-text" cols="5" rows="3" data-validate="{required:true}"><?= $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('content')) ?></textarea>
+            </div>
+        </div>
+        <?= $block->getChildHtml('form.additional.info') ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Save')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Save')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+<script>CKEDITOR.replace( 'content' );</script>
